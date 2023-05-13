@@ -3,7 +3,7 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-from setuptools import setup, Extension, distutils
+from setuptools import setup, Extension
 import glob
 import platform
 import os, sys, shutil
@@ -65,7 +65,7 @@ def compile_test(header, library):
 
 
 # hack compile to support parallel compiling
-distutils.ccompiler.CCompiler.compile = parallelCCompile
+ccompiler.CCompiler.compile = parallelCCompile
 
 FILES = glob.glob('kenlm/util/*.cc') \
         + glob.glob('kenlm/lm/*.cc') \
